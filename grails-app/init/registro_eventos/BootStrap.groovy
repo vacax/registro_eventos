@@ -16,6 +16,11 @@ class BootStrap {
         Parametro.findByCodigo(Parametro.ANTENA_ENTRADA) ?: new Parametro(codigo: Parametro.ANTENA_ENTRADA, nombre: "ANTENA_ENTRADA", valor: "1").save(flush: true, failOnError: true)
         Parametro.findByCodigo(Parametro.ANTENA_SALIDA) ?: new Parametro(codigo: Parametro.ANTENA_SALIDA, nombre: "ANTENA_ENTRADA", valor: "2").save(flush: true, failOnError: true)
         Parametro.findByCodigo(Parametro.HABILITAR_NOTIFICACIONES) ?: new Parametro(codigo: Parametro.HABILITAR_NOTIFICACIONES, nombre: "ANTENA_ENTRADA", valor: "1").save(flush: true, failOnError: true)
+        Parametro.findByCodigo(Parametro.JMS_URL) ?: new Parametro(codigo: Parametro.JMS_URL, nombre: "JMS_URL", valor: "failover:tcp://192.168.1.100:61616").save(flush: true, failOnError: true)
+        Parametro.findByCodigo(Parametro.JMS_COLA) ?: new Parametro(codigo: Parametro.JMS_COLA, nombre: "JMS_COLA", valor: "mercadeo").save(flush: true, failOnError: true)
+        Parametro.findByCodigo(Parametro.JMS_USUARIO) ?: new Parametro(codigo: Parametro.JMS_USUARIO, nombre: "JMS_USUARIO", valor: "admin").save(flush: true, failOnError: true)
+        Parametro.findByCodigo(Parametro.JMS_PASSWORD) ?: new Parametro(codigo: Parametro.JMS_PASSWORD, nombre: "JMS_PASSWORD", valor: "admin").save(flush: true, failOnError: true)
+        Parametro.findByCodigo(Parametro.JMS_HABILITAR) ?: new Parametro(codigo: Parametro.JMS_HABILITAR, nombre: "JMS_HABILITAR", valor: "1").save(flush: true, failOnError: true)
 
         //Creando Usuario y Perfiles
         Usuario usuario = Usuario.findByUsername("admin") ? null :new Usuario(username: "admin", password: "admin", nombre: "Administrador").save(flush: true, failOnError: true)
@@ -29,7 +34,7 @@ class BootStrap {
 
         //Creando Data
         if(Environment.current == Environment.DEVELOPMENT){
-            new Evento(nombre: "Charla #1", fechaInicio: Date.parse("dd/MM/yyyy HH:mm:ss", "25/10/2017 23:00:00"), fechaFin: Date.parse("dd/MM/yyyy HH:mm:ss", "26/10/2017 23:00:00")).save(failOnError: true)
+            new Evento(nombre: "Charla #1", fechaInicio: Date.parse("dd/MM/yyyy HH:mm:ss", "26/10/2017 23:00:00"), fechaFin: Date.parse("dd/MM/yyyy HH:mm:ss", "27/10/2017 23:00:00")).save(failOnError: true)
             
             (1..10).each {
 

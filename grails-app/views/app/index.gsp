@@ -51,8 +51,11 @@
                     responsive           : true,
                     // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
                     maintainAspectRatio  : true,
+                    legend: {
+                        position: 'top'
+                    },
                     //String - A legend template
-                    legendTemplate       : ''
+                    legendTemplate       : 'Probando....'
                 };
 
                 //Create pie or douhnut chart

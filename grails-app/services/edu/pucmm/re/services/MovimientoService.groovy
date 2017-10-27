@@ -1,5 +1,6 @@
 package edu.pucmm.re.services
 
+import edu.pucmm.re.domains.configuracion.Parametro
 import edu.pucmm.re.domains.eventos.Evento
 import edu.pucmm.re.domains.eventos.MovEntradaSalida
 import edu.pucmm.re.domains.eventos.Registro
@@ -9,11 +10,13 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class MovimientoService {
 
+    def brokerJmsService
+
     void procesarMovimiento(LecturaTag l) {
         try {
             String ubicacion = ""
             Date fecha = new Date()
-            BigInteger bigInteger = l.tagRfid.toBigInteger()
+            BigInteger bigInteger = l.tagRfid.toBigInteger()/100000000000
             println("El tag recibido es: " + bigInteger)
             println("Antena: " + l.antenaRecibida)
 
@@ -46,7 +49,13 @@ class MovimientoService {
             println("Moviento procesado para registro ${registro.id} - Evento: ${evento.id}")
             new MovEntradaSalida(registro: registro, evento: evento, antena: l.antenaRecibida, rfid: "${bigInteger}", accion: ubicacion).save(flush: true, failOnError: true)
             registro.ubicacion = ubicacion
-            registro.save(flush: true)
+            registro.save(flush: true, failOnError: true)
+
+            
+            //enviando la notificación.
+            if(ubicacion == "ENTRADA") {
+                brokerJmsService.enviarMensaje(Parametro.findByCodigo(Parametro.JMS_COLA).valor, "${registro.nombre}")
+            }
 
 
         }catch (Exception ex){
