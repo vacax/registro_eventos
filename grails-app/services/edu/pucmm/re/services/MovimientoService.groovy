@@ -16,7 +16,7 @@ class MovimientoService {
         try {
             String ubicacion = ""
             Date fecha = new Date()
-            BigInteger bigInteger = l.tagRfid.toBigInteger()/100000000000
+            BigInteger bigInteger = (l.tagRfid.substring(0, 2)).toBigInteger()
             println("El tag recibido es: " + bigInteger)
             println("Antena: " + l.antenaRecibida)
 
