@@ -5,6 +5,7 @@ class Registro {
     String nombre
     BigInteger rfid
     String email = "pendiente@pendiente.com"
+    String matricula
 
     //Datos Ubicacion
     String ubicacion = ""

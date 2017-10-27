@@ -27,6 +27,10 @@
                         <input type="hidden" name="id" value="${registro.id}">
                         <div class="box-body">
                             <div class="form-group">
+                                <label for="matricula">Matrícula</label>
+                                <input type="text" class="form-control" name="matricula" id="matricula" value="${registro.matricula}" required placeholder="Matricula">
+                            </div>
+                            <div class="form-group">
                                 <label for="nombre">Nombre</label>
                                 <input type="nombre" class="form-control" name="nombre" id="nombre" value="${registro.nombre}" required placeholder="Nombre">
                             </div>

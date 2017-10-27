@@ -32,6 +32,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
+                        <th>Matrícula</th>
                         <th>RFID</th>
                         <th>Acciones</th>
                     </tr>
@@ -41,6 +42,7 @@
                         <tr>
                             <td>${reg.id}</td>
                             <td>${reg.nombre}</td>
+                            <td>${reg.matricula}</td>
                             <td>${reg.rfid}</td>
                             <td>
                                 <g:link action="editar" id="${reg.id}">Editar</g:link> |
@@ -53,6 +55,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
+                        <th>Matrícula</th>
                         <th>RFID</th>
                         <th></th>
                     </tr>

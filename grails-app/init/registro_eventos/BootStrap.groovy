@@ -16,7 +16,7 @@ class BootStrap {
         Parametro.findByCodigo(Parametro.ANTENA_ENTRADA) ?: new Parametro(codigo: Parametro.ANTENA_ENTRADA, nombre: "ANTENA_ENTRADA", valor: "1").save(flush: true, failOnError: true)
         Parametro.findByCodigo(Parametro.ANTENA_SALIDA) ?: new Parametro(codigo: Parametro.ANTENA_SALIDA, nombre: "ANTENA_ENTRADA", valor: "2").save(flush: true, failOnError: true)
         Parametro.findByCodigo(Parametro.HABILITAR_NOTIFICACIONES) ?: new Parametro(codigo: Parametro.HABILITAR_NOTIFICACIONES, nombre: "ANTENA_ENTRADA", valor: "1").save(flush: true, failOnError: true)
-        Parametro.findByCodigo(Parametro.JMS_URL) ?: new Parametro(codigo: Parametro.JMS_URL, nombre: "JMS_URL", valor: "failover:tcp://192.168.1.100:61616").save(flush: true, failOnError: true)
+        Parametro.findByCodigo(Parametro.JMS_URL) ?: new Parametro(codigo: Parametro.JMS_URL, nombre: "JMS_URL", valor: "failover:tcp://localhost:61616").save(flush: true, failOnError: true)
         Parametro.findByCodigo(Parametro.JMS_COLA) ?: new Parametro(codigo: Parametro.JMS_COLA, nombre: "JMS_COLA", valor: "mercadeo").save(flush: true, failOnError: true)
         Parametro.findByCodigo(Parametro.JMS_USUARIO) ?: new Parametro(codigo: Parametro.JMS_USUARIO, nombre: "JMS_USUARIO", valor: "admin").save(flush: true, failOnError: true)
         Parametro.findByCodigo(Parametro.JMS_PASSWORD) ?: new Parametro(codigo: Parametro.JMS_PASSWORD, nombre: "JMS_PASSWORD", valor: "admin").save(flush: true, failOnError: true)
@@ -38,17 +38,17 @@ class BootStrap {
             
             (1..10).each {
 
-                new Registro(nombre: "Nombre ${it}", rfid: "${it}0000000000".toBigInteger()).save(failOnError: true)
+                new Registro(matricula: it,nombre: "Nombre ${it}", rfid: "${it}".toBigInteger()).save(failOnError: true)
             }
 
             //
-            new Registro(nombre: "Nombre", rfid: "134000000000".toBigInteger()).save(failOnError: true)
-            new Registro(nombre: "Nombre", rfid: "162000000000".toBigInteger()).save(failOnError: true)
-            new Registro(nombre: "Nombre", rfid: "270000000000".toBigInteger()).save(failOnError: true)
-            new Registro(nombre: "Nombre", rfid: "930000000000".toBigInteger()).save(failOnError: true)
-            new Registro(nombre: "Nombre", rfid: "350000000000".toBigInteger()).save(failOnError: true)
-            new Registro(nombre: "Nombre", rfid: "243000000000".toBigInteger()).save(failOnError: true)
-            new Registro(nombre: "Nombre", rfid: "233000000000".toBigInteger()).save(failOnError: true)
+            new Registro(matricula: 2000,nombre: "Nombre", rfid: "134".toBigInteger()).save(failOnError: true)
+            new Registro(matricula: 2000,nombre: "Nombre", rfid: "162".toBigInteger()).save(failOnError: true)
+            new Registro(matricula: 2000,nombre: "Nombre", rfid: "270".toBigInteger()).save(failOnError: true)
+            new Registro(matricula: 2000,nombre: "Nombre", rfid: "930".toBigInteger()).save(failOnError: true)
+            new Registro(matricula: 2000,nombre: "Nombre", rfid: "35".toBigInteger()).save(failOnError: true)
+            new Registro(matricula: 2000,nombre: "Nombre", rfid: "243".toBigInteger()).save(failOnError: true)
+            new Registro(matricula: 2000,nombre: "Nombre", rfid: "233".toBigInteger()).save(failOnError: true)
         }
 
     }

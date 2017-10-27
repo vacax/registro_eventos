@@ -19,6 +19,7 @@ class RegistroService {
         Registro r = new Registro()
 
         r.nombre = registroForm.nombre
+        r.matricula = registroForm.matricula
         r.email = registroForm.email
         r.rfid = registroForm.rfid.toBigInteger()
         r.creadoPor=r.modificadoPor=usuario.username
@@ -39,8 +40,9 @@ class RegistroService {
         Registro r = Registro.get(registroForm.id)
 
         r.nombre = registroForm.nombre
+        r.matricula = registroForm.matricula
         r.email = registroForm.email
-        r.rfid = registroForm.rfid
+        r.rfid = registroForm.rfid.toBigInteger()
         r.modificadoPor=usuario.username
 
         r.save(flush: true, failOnError: true)

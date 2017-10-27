@@ -26,8 +26,12 @@
                     <g:form role="form" action="procesarCreacion" useToken="true">
                         <div class="box-body">
                             <div class="form-group">
+                                <label for="matricula">Matrícula</label>
+                                <input type="text" class="form-control" name="matricula" id="matricula" required placeholder="Matricula">
+                            </div>
+                            <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input type="nombre" class="form-control" name="nombre" id="nombre" required placeholder="Nombre">
+                                <input type="text" class="form-control" name="nombre" id="nombre" required placeholder="Nombre">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
